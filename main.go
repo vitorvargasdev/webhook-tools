@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"os"
 
-func main(){
-  fmt.Println("Hello world!")
+	"github.com/vitorvargasdev/webhook-tools/cmd"
+)
+
+func main() {
+  cli := cmd.CLI{}
+  if err := cli.Prepare().App.Run(os.Args); err != nil {
+		log.Fatal(err)
+	}
 }
